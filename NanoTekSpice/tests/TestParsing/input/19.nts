@@ -1,0 +1,10 @@
+# Basic wire, direct link input to output.
+#
+# INPUT ---> OUTPUT
+
+.chipsets:
+clock in (1)
+output out
+
+.links:
+in:1 out:1

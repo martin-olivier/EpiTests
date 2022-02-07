@@ -1,0 +1,11 @@
+.chipsets:	
+         input     toto		
+output tota
+	.links:#fifi
+       #fifi
+       #fifi
+    toto:1 tota:1
+
+
+
+	

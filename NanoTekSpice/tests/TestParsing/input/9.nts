@@ -1,0 +1,9 @@
+# 9.nts
+
+.chipsets:
+
+.links:
+
+a:1 or:1
+b:1 or:2
+or:3 s:1

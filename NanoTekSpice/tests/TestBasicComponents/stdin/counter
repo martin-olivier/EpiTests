@@ -1,0 +1,19 @@
+cl_clock = 0
+in_reset = 0
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+display
+in_reset = 1
+simulate
+display

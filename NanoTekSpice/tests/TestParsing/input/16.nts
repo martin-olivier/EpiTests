@@ -1,0 +1,12 @@
+# 15.nts
+
+.chipsets:
+input a
+input b
+input c
+4071 or
+output s
+.links:
+a:1 or:1
+b:1 or:2 c:1
+or:3 s:1

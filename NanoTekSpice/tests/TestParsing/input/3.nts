@@ -1,0 +1,15 @@
+# 3.nts
+
+.chipsets:# chipsets list
+
+input a
+input b
+
+4071 or
+output s
+
+.links:# links list
+
+a:1 or:1
+b:1 or:2
+or:3 s:1

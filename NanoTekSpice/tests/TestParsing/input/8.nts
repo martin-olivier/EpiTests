@@ -1,0 +1,16 @@
+# 8.nts
+
+.chipsets:
+
+input a
+input a
+true b
+
+4071 or
+output s
+
+.links:
+
+a:1 or:1
+b:1 or:2
+or:3 s:1

@@ -1,0 +1,33 @@
+name: CI
+
+on: [push, pull_request]
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    check_nm_objdump:
+        name: Check nm/objdump
+        runs-on: ubuntu-latest
+        container: epitechcontent/epitest-docker:latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Download IO_Tester
+              run: git clone https://github.com/martin-olivier/IO-TESTER
+
+            - name: Install IO_Tester
+              working-directory: IO-TESTER
+              run: sudo make install
+
+            - name: Fetch nm
+              run: cp /usr/bin/nm ./nm_objdump/my_nm
+
+            - name: Fetch objdump
+              run: cp /usr/bin/objdump ./nm_objdump/my_objdump
+
+            - name: Run Tests
+              working-directory: nm_objdump
+              run: IO_Tester tests/*.io
