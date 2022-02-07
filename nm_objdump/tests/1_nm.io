@@ -1,12 +1,23 @@
+#!/usr/bin/env IO_Tester
+
+# IO_Tester 1.8.0 minimum is required
+# https://github.com/tocola/IO-TESTER
+
+@return 1
+
 [no args] ./my_nm
 ./my_nm: 'a.out': No such file
 
 [END]
 
+@return 1
+
 [bad arg] ./my_nm lala.a
 ./my_nm: 'lala.a': No such file
 
 [END]
+
+@return 1
 
 [multiple bad args] ./my_nm lala.a lala2.a lala3.a
 ./my_nm: 'lala.a': No such file
