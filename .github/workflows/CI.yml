@@ -7,8 +7,8 @@ defaults:
         shell: bash
 
 jobs:
-    check_nm_objdump:
-        name: Check nm/objdump
+    nm_objdump:
+        name: nm/objdump
         runs-on: ubuntu-latest
         container: epitechcontent/epitest-docker:latest
 
@@ -30,4 +30,4 @@ jobs:
 
             - name: Run Tests
               working-directory: nm_objdump
-              run: IO_Tester tests/*.io
+              run: IO_Tester tests/*.io --details
