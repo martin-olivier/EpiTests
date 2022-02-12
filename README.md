@@ -7,8 +7,8 @@ https://github.com/martin-olivier/IO-TESTER
 ## NanoTekSpice tests
 
 1 - Download the `tests` folder  
-2 - Put it at the root of your NanoTekSpice project  
-3 - Build your NanoTekSpice (`make`)  
+2 - Put it at the root of your `NanoTekSpice` project  
+3 - Build your project (`make`)  
 4 - Run `IO_Tester tests/*.io`  
 
 > Don't forget to add `--diff` argument to see the GOT/EXPECTED output diff in Visual Studio Code
@@ -17,3 +17,9 @@ https://github.com/martin-olivier/IO-TESTER
 ```
 IO_Tester tests/*.io --diff 3
 ```
+
+## Malloc tests
+
+1 - Download the `testmalloc.io` file  
+2 - Put it at the root of your `malloc` project   
+4 - Run `IO_Tester testmalloc.io`  
