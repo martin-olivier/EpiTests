@@ -1,7 +1,7 @@
 #!/usr/bin/env IO_Tester
 
 # IO_Tester 1.8.0 minimum is required
-# https://github.com/tocola/IO-TESTER
+# https://github.com/martin-olivier/IO-TESTER
 
 [Input - Output] ./nanotekspice tests/TestBasicComponents/input/input_output.nts < tests/TestBasicComponents/stdin/IO
 > tick: 0

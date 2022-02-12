@@ -1,7 +1,7 @@
 #!/usr/bin/env IO_Tester
 
 # IO_Tester 1.8.0 minimum is required
-# https://github.com/tocola/IO-TESTER
+# https://github.com/martin-olivier/IO-TESTER
 
 [Advanced AND] ./nanotekspice tests/TestAdvancedComponents/input/and.nts < tests/TestAdvancedComponents/stdin/and
 > tick: 0
