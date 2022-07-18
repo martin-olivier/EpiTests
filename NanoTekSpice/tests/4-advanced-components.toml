@@ -1,0 +1,244 @@
+[default]
+working_dir = ".."
+
+[test."Advanced AND"]
+cmd = "./nanotekspice tests/TestAdvancedComponents/and.nts"
+stdin = """
+display
+a = 1
+b = 1
+c = 1
+d = 1
+e = 1
+simulate
+display
+a = 0
+b = 0
+c = 0
+d = 0
+e = 0
+simulate
+display
+a = 1
+b = 1
+c = 1
+d = 1
+e = 0
+simulate
+display
+"""
+stdout = """
+> tick: 0
+input(s):
+  a: U
+  b: U
+  c: U
+  d: U
+  e: U
+output(s):
+  out: U
+> > > > > > > tick: 1
+input(s):
+  a: 1
+  b: 1
+  c: 1
+  d: 1
+  e: 1
+output(s):
+  out: 1
+> > > > > > > tick: 2
+input(s):
+  a: 0
+  b: 0
+  c: 0
+  d: 0
+  e: 0
+output(s):
+  out: 0
+> > > > > > > tick: 3
+input(s):
+  a: 1
+  b: 1
+  c: 1
+  d: 1
+  e: 0
+output(s):
+  out: 0
+> """
+stderr = ""
+
+[test."Advanced AND or NOT"]
+cmd = "./nanotekspice tests/TestAdvancedComponents/and-or-not.nts"
+stdin = """
+display
+in_a = 0
+in_b = 0
+in_c = 0
+simulate
+display
+in_a = 0
+in_b = 0
+in_c = 1
+simulate
+display
+in_a = 0
+in_b = 1
+in_c = 0
+simulate
+display
+in_a = 0
+in_b = 1
+in_c = 1
+simulate
+display
+in_a = 1
+in_b = 0
+in_c = 0
+simulate
+display
+in_a = 1
+in_b = 0
+in_c = 1
+simulate
+display
+in_a = 1
+in_b = 1
+in_c = 1
+simulate
+display
+"""
+stdout = """
+> tick: 0
+input(s):
+  in_a: U
+  in_b: U
+  in_c: U
+output(s):
+  out: U
+> > > > > tick: 1
+input(s):
+  in_a: 0
+  in_b: 0
+  in_c: 0
+output(s):
+  out: 0
+> > > > > tick: 2
+input(s):
+  in_a: 0
+  in_b: 0
+  in_c: 1
+output(s):
+  out: 0
+> > > > > tick: 3
+input(s):
+  in_a: 0
+  in_b: 1
+  in_c: 0
+output(s):
+  out: 0
+> > > > > tick: 4
+input(s):
+  in_a: 0
+  in_b: 1
+  in_c: 1
+output(s):
+  out: 1
+> > > > > tick: 5
+input(s):
+  in_a: 1
+  in_b: 0
+  in_c: 0
+output(s):
+  out: 0
+> > > > > tick: 6
+input(s):
+  in_a: 1
+  in_b: 0
+  in_c: 1
+output(s):
+  out: 0
+> > > > > tick: 7
+input(s):
+  in_a: 1
+  in_b: 1
+  in_c: 1
+output(s):
+  out: 0
+> """
+stderr = ""
+
+[test."Advanced AND + True"]
+cmd = "./nanotekspice tests/TestAdvancedComponents/and_true.nts"
+stdin = "display\n"
+stdout = """
+> tick: 0
+input(s):
+output(s):
+  out: 1
+> """
+stderr = ""
+
+[test."Advanced AND + True + False"]
+cmd = "./nanotekspice tests/TestAdvancedComponents/and_true_false.nts"
+stdin = "display\n"
+stdout = """
+> tick: 0
+input(s):
+output(s):
+  out: 0
+> """
+stderr = ""
+
+[test."Advanced AND + True + False + Undifined"]
+cmd = "./nanotekspice tests/TestAdvancedComponents/and_true_false_U.nts"
+stdin = "display\n"
+stdout = """
+> tick: 0
+input(s):
+  c: U
+output(s):
+  out: 0
+> """
+stderr = ""
+
+[test."Advanced AND + True + Clock"]
+cmd = "./nanotekspice tests/TestAdvancedComponents/and_true_clock.nts"
+stdin = """
+display
+e = 0
+display
+simulate
+display
+simulate
+display
+simulate
+display
+"""
+stdout = """
+> tick: 0
+input(s):
+  e: U
+output(s):
+  out: U
+> > tick: 0
+input(s):
+  e: U
+output(s):
+  out: U
+> > tick: 1
+input(s):
+  e: 0
+output(s):
+  out: 0
+> > tick: 2
+input(s):
+  e: 1
+output(s):
+  out: 1
+> > tick: 3
+input(s):
+  e: 0
+output(s):
+  out: 0
+> """
+stderr = ""

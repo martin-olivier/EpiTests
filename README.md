@@ -1,25 +1,19 @@
 # EpiTests
 Functional tests of {Epitech} projects
 
-To run those tests, you will need `IO_Tester`  
-https://github.com/martin-olivier/IO-TESTER
+To run those tests, you will need `Vangelis`:  
+https://github.com/martin-olivier/Vangelis
 
 ## NanoTekSpice tests
 
 1 - Download the `tests` folder  
 2 - Put it at the root of your `NanoTekSpice` project  
-3 - Build your project (`make`)  
-4 - Run `IO_Tester tests/*.io`  
+3 - Run `vangelis tests/*.toml`  
 
-> Don't forget to add `--diff` argument to see the GOT/EXPECTED output diff in Visual Studio Code
-
-> You can add a limit of tests diff to display on VSCode by adding an integer argument after `--diff`
-```
-IO_Tester tests/*.io --diff 3
-```
+> Don't forget to add `--verbose` argument to see the GOT / EXPECTED diff
 
 ## Malloc tests
 
-1 - Download the `testmalloc.io` file  
+1 - Download the `tests.toml` file  
 2 - Put it at the root of your `malloc` project   
-4 - Run `IO_Tester testmalloc.io`  
+4 - Run `vangelis tests.toml`  

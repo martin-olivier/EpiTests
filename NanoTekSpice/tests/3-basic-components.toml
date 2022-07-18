@@ -1,9 +1,23 @@
-#!/usr/bin/env IO_Tester
+[default]
+working_dir = ".."
 
-# IO_Tester 1.8.0 minimum is required
-# https://github.com/martin-olivier/IO-TESTER
-
-[Input - Output] ./nanotekspice tests/TestBasicComponents/input/input_output.nts < tests/TestBasicComponents/stdin/IO
+[test."Input - Output"]
+cmd = "./nanotekspice tests/TestBasicComponents/input_output.nts"
+stdin = """
+display
+simulate
+display
+in=0
+simulate
+display
+in=1
+simulate
+display
+in=U
+simulate
+display
+"""
+stdout = """
 > tick: 0
 input(s):
   in: U
@@ -29,26 +43,49 @@ input(s):
   in: U
 output(s):
   out: U
-> 
-[END]
+> """
+stderr = ""
 
-[True] ./nanotekspice tests/TestBasicComponents/input/true.nts < tests/TestBasicComponents/stdin/bool
+[test.True]
+cmd = "./nanotekspice tests/TestBasicComponents/true.nts"
+stdin = "display\n"
+stdout = """
 > tick: 0
 input(s):
 output(s):
   out: 1
-> 
-[END]
+> """
+stderr = ""
 
-[False] ./nanotekspice tests/TestBasicComponents/input/false.nts < tests/TestBasicComponents/stdin/bool
+[test.False]
+cmd = "./nanotekspice tests/TestBasicComponents/false.nts"
+stdin = "display\n"
+stdout = """
 > tick: 0
 input(s):
 output(s):
   out: 0
-> 
-[END]
+> """
+stderr = ""
 
-[Clock] ./nanotekspice tests/TestBasicComponents/input/clock.nts < tests/TestBasicComponents/stdin/Clock
+[test.Clock]
+cmd = "./nanotekspice tests/TestBasicComponents/clock.nts"
+stdin = """
+display
+simulate
+display
+cl=0
+display
+simulate
+display
+simulate
+display
+simulate
+simulate
+simulate
+display
+"""
+stdout = """
 > tick: 0
 input(s):
   cl: U
@@ -79,10 +116,32 @@ input(s):
   cl: 0
 output(s):
   out: 0
-> 
-[END]
+> """
+stderr = ""
 
-[4001] ./nanotekspice tests/TestBasicComponents/input/4001_nor.nts < tests/TestBasicComponents/stdin/4links
+[test.4001]
+cmd = "./nanotekspice tests/TestBasicComponents/4001_nor.nts"
+stdin = """
+in_01=0
+in_02=0
+in_05=0
+in_06=1
+in_08=1
+in_09=0
+in_12=1
+in_13=1
+simulate
+display
+in_01=U
+in_02=0
+in_05=1
+in_06=U
+in_08=U
+in_09=U
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > tick: 1
 input(s):
   in_01: 0
@@ -113,10 +172,32 @@ output(s):
   out_04: 0
   out_10: U
   out_11: 0
-> 
-[END]
+> """
+stderr = ""
 
-[4011] ./nanotekspice tests/TestBasicComponents/input/4011_nand.nts < tests/TestBasicComponents/stdin/4links
+[test.4011]
+cmd = "./nanotekspice tests/TestBasicComponents/4011_nand.nts"
+stdin = """
+in_01=0
+in_02=0
+in_05=0
+in_06=1
+in_08=1
+in_09=0
+in_12=1
+in_13=1
+simulate
+display
+in_01=U
+in_02=0
+in_05=1
+in_06=U
+in_08=U
+in_09=U
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > tick: 1
 input(s):
   in_01: 0
@@ -147,10 +228,32 @@ output(s):
   out_04: U
   out_10: U
   out_11: 0
-> 
-[END]
+> """
+stderr = ""
 
-[4030] ./nanotekspice tests/TestBasicComponents/input/4030_xor.nts < tests/TestBasicComponents/stdin/4links
+[test.4030]
+cmd = "./nanotekspice tests/TestBasicComponents/4030_xor.nts"
+stdin = """
+in_01=0
+in_02=0
+in_05=0
+in_06=1
+in_08=1
+in_09=0
+in_12=1
+in_13=1
+simulate
+display
+in_01=U
+in_02=0
+in_05=1
+in_06=U
+in_08=U
+in_09=U
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > tick: 1
 input(s):
   in_01: 0
@@ -181,10 +284,32 @@ output(s):
   out_04: U
   out_10: U
   out_11: 0
-> 
-[END]
+> """
+stderr = ""
 
-[4071] ./nanotekspice tests/TestBasicComponents/input/4071_or.nts < tests/TestBasicComponents/stdin/4links
+[test.4071]
+cmd = "./nanotekspice tests/TestBasicComponents/4071_or.nts"
+stdin = """
+in_01=0
+in_02=0
+in_05=0
+in_06=1
+in_08=1
+in_09=0
+in_12=1
+in_13=1
+simulate
+display
+in_01=U
+in_02=0
+in_05=1
+in_06=U
+in_08=U
+in_09=U
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > tick: 1
 input(s):
   in_01: 0
@@ -215,10 +340,32 @@ output(s):
   out_04: 1
   out_10: U
   out_11: 1
-> 
-[END]
+> """
+stderr = ""
 
-[4081] ./nanotekspice tests/TestBasicComponents/input/4081_and.nts < tests/TestBasicComponents/stdin/4links
+[test.4081]
+cmd = "./nanotekspice tests/TestBasicComponents/4081_and.nts"
+stdin = """
+in_01=0
+in_02=0
+in_05=0
+in_06=1
+in_08=1
+in_09=0
+in_12=1
+in_13=1
+simulate
+display
+in_01=U
+in_02=0
+in_05=1
+in_06=U
+in_08=U
+in_09=U
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > tick: 1
 input(s):
   in_01: 0
@@ -249,10 +396,22 @@ output(s):
   out_04: U
   out_10: U
   out_11: 1
-> 
-[END]
+> """
+stderr = ""
 
-[4069] ./nanotekspice tests/TestBasicComponents/input/4069_not.nts < tests/TestBasicComponents/stdin/4069
+[test.4069]
+cmd = "./nanotekspice tests/TestBasicComponents/4069_not.nts"
+stdin = """
+in_01=0
+in_03=1
+in_05=1
+in_09=0
+in_11=U
+in_13=U
+simulate
+display
+"""
+stdout = """
 > > > > > > > > tick: 1
 input(s):
   in_01: 0
@@ -268,10 +427,28 @@ output(s):
   out_08: 1
   out_10: U
   out_12: U
-> 
-[END]
+> """
+stderr = ""
 
-[4008] ./nanotekspice tests/TestBasicComponents/input/4008_adder.nts < tests/TestBasicComponents/stdin/adder
+[test.4008]
+cmd = "./nanotekspice tests/TestBasicComponents/4008_adder.nts"
+stdin = """
+in_a1=1
+in_a2=0
+in_a3=0
+in_a4=1
+in_b1=1
+in_b2=1
+in_b3=0
+in_b4=0
+in_c=1
+simulate
+display
+in_b4=1
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > > tick: 1
 input(s):
   in_a1: 1
@@ -306,10 +483,33 @@ output(s):
   out_2: 1
   out_3: 0
   out_c: 1
-> 
-[END]
+> """
+stderr = ""
 
-[4040] ./nanotekspice tests/TestBasicComponents/input/4040_counter.nts < tests/TestBasicComponents/stdin/counter
+[test.4040]
+cmd = "./nanotekspice tests/TestBasicComponents/4040_counter.nts"
+stdin = """
+cl_clock = 0
+in_reset = 0
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+simulate
+display
+in_reset = 1
+simulate
+display
+"""
+stdout = """
 > > > > > > > > > > > > > > > > tick: 13
 input(s):
   cl_clock: 0
@@ -344,5 +544,5 @@ output(s):
   out_09: 0
   out_10: 0
   out_11: 0
-> 
-[END]
+> """
+stderr = ""

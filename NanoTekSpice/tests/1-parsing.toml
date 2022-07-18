@@ -1,0 +1,78 @@
+#!/usr/bin/env IO_Tester
+
+# IO_Tester 2.0.0 minimum is required
+# https://github.com/tocola/IO-TESTER
+
+[default]
+working_dir = ".."
+exit_status = 84
+
+[test."Comment on line .chipsets"]
+cmd = "./nanotekspice tests/TestParsing/1.nts"
+
+[test."Comment on line .links"]
+cmd = "./nanotekspice tests/TestParsing/2.nts"
+
+[test."Comments and Newlines"]
+cmd = "./nanotekspice tests/TestParsing/3.nts"
+exit_status = 0
+
+[test."Subject Error Exemple"]
+cmd = "./nanotekspice tests/TestParsing/subject_exemple.nts"
+
+[test."Unknown component type"]
+cmd = "./nanotekspice tests/TestParsing/4.nts"
+
+[test."Unknown component name"]
+cmd = "./nanotekspice tests/TestParsing/5.nts"
+
+[test."Pin does not exist"]
+cmd = "./nanotekspice tests/TestParsing/6.nts"
+
+[test."Pin does not exist 2"]
+cmd = "./nanotekspice tests/TestParsing/7.nts"
+
+[test."Several components share the same name"]
+cmd = "./nanotekspice tests/TestParsing/8.nts"
+
+[test."No chipsets in the circuit"]
+cmd = "./nanotekspice tests/TestParsing/9.nts"
+
+[test."No chipsets in the circuit 2"]
+cmd = "./nanotekspice tests/TestParsing/10.nts"
+
+[test."Chipset parsing"]
+cmd = "./nanotekspice tests/TestParsing/11.nts"
+
+[test."Chipset parsing 2"]
+cmd = "./nanotekspice tests/TestParsing/12.nts"
+
+[test."Link parsing"]
+cmd = "./nanotekspice tests/TestParsing/13.nts"
+
+[test."Link parsing 2"]
+cmd = "./nanotekspice tests/TestParsing/14.nts"
+
+[test."Link parsing 3"]
+cmd = "./nanotekspice tests/TestParsing/15.nts"
+
+[test."Link parsing 4"]
+cmd = "./nanotekspice tests/TestParsing/16.nts"
+
+[test."Link parsing 5"]
+cmd = "./nanotekspice tests/TestParsing/17.nts"
+
+[test."Empty File"]
+cmd = "./nanotekspice tests/TestParsing/18.nts"
+
+[test."Initializer 1"]
+cmd = "./nanotekspice tests/TestParsing/19.nts"
+exit_status = 0
+
+[test."Initializer 2"]
+cmd = "./nanotekspice tests/TestParsing/20.nts"
+exit_status = 0
+
+[test."Hard Spaces + Comments"]
+cmd = "./nanotekspice tests/TestParsing/hardspacecomments.nts"
+exit_status = 0

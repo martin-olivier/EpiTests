@@ -1,0 +1,43 @@
+[test.Build]
+
+cmd = "make"
+timeout = 60
+
+[test.whoami]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so whoami"
+stderr = ""
+
+[test.ls]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so ls"
+stderr = ""
+
+[test."ls -lart"]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so ls -lart"
+stderr = ""
+
+[test.clear]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so clear"
+stderr = ""
+
+[test.tree]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so tree"
+stderr = ""
+
+[test."parent tree"]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so tree ../../"
+stderr = ""
+
+[test.shell]
+
+cmd = "LD_PRELOAD=./libmy_malloc.so sh -c exit"
+stderr = ""
+
+[test.Clean]
+
+cmd = "make fclean"

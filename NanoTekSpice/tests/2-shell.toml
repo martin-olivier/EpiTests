@@ -1,0 +1,67 @@
+[default]
+working_dir = ".."
+
+[test.Exit]
+cmd = "./nanotekspice tests/TestShell/input_output.nts"
+stdin = "exit\n"
+stdout = "> "
+stderr = ""
+
+[test."Ctrl D"]
+cmd = "./nanotekspice tests/TestShell/input_output.nts"
+stdout = "> "
+stderr = ""
+
+[test."Basic Correct Display (NAND)"]
+cmd = "./nanotekspice tests/TestShell/4011_nand.nts"
+stdin = "display\n"
+stdout = """
+> tick: 0
+input(s):
+  in_01: U
+  in_02: U
+  in_05: U
+  in_06: U
+  in_08: U
+  in_09: U
+  in_12: U
+  in_13: U
+output(s):
+  out_03: U
+  out_04: U
+  out_10: U
+  out_11: U
+> """
+stderr = ""
+
+[test."Basic Simulate + Display"]
+cmd = "./nanotekspice tests/TestShell/input_output.nts"
+stdin = """
+in=0
+simulate
+display
+in = 1
+simulate
+display
+    in =U       
+simulate
+display
+"""
+stdout = """
+> > > tick: 1
+input(s):
+  in: 0
+output(s):
+  out: 0
+> > > tick: 2
+input(s):
+  in: 1
+output(s):
+  out: 1
+> > > tick: 3
+input(s):
+  in: U
+output(s):
+  out: U
+> """
+stderr = ""
