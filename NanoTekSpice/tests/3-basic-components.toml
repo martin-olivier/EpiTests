@@ -1,3 +1,6 @@
+# vangelis 2.0.0 minimum is required
+# https://github.com/martin-olivier/vangelis
+
 [default]
 working_dir = ".."
 
