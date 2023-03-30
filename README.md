@@ -16,7 +16,7 @@ To run those tests, you will need `vangelis`:
 ## Malloc tests
 
 1 - Download the `tests.toml` file  
-2 - Put it at the root of your `malloc` project
+2 - Put it at the root of your `malloc` project  
 3 - Run `vangelis tests.toml`
 
 ## Contributing
